@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Anton Hacked</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+    color: #00ffcc;
+    animation: flicker 2s infinite;
+}
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+    }
+}
+
+/* Neon glow */
+.neon {
+    text-shadow: 0 0 5px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+}
+
+/* Scanline effect */
+.scanlines::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,204,0.05),
+        rgba(0,255,204,0.05) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+}
+</style>
+</head>
+
+<body class="bg-black text-green-400 flex items-center justify-center min-h-screen scanlines">
+
+<!-- CARD -->
+<div class="bg-black/70 border border-green-400 p-8 rounded-2xl shadow-[0_0_30px_#00ffcc] w-[320px] backdrop-blur-md">
+
+    <p class="text-center text-xl glitch neon mb-2">WhatsApp banned by Anton</p>
+    <h5 class="text-center text-green-300 text-sm mb-6 opacity-70">Jangan Di Salah gunakan</h5>
+
+    <input 
+        type="number" 
+        placeholder="WhatsApp Number" 
+        id="text"
+        class="w-full bg-black border border-green-500 rounded-lg px-4 py-3 text-green-300 placeholder-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+    >
+
+    <button 
+        id="login-button"
+        class="mt-5 w-full py-3 rounded-lg bg-green-500 text-black font-bold hover:bg-green-400 transition duration-300 shadow-[0_0_20px_#00ffcc] hover:scale-105 active:scale-95"
+    >
+        BANNED
+    </button>
+
+</div>
+
+<!-- VIDEO -->
+<div class="scare fixed inset-0 hidden bg-black">
+    <video id="video" class="w-full h-full object-cover" src="dshv2.mp4" loop></video>
+</div>
+
+<script type="text/javascript">
+    const video = document.getElementById("video");
+    const scare = document.querySelector(".scare");
+    const loginButton = document.getElementById("login-button");
+
+    loginButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        scare.style.display = "block";
+        video.play();
+        videoClick();
+    });
+
+    function videoClick(event) {
+        if(event) event.preventDefault();
+        const { documentElement } = document;
+        if(documentElement.requestFullscreen) documentElement.requestFullscreen();
+        else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
+        else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
+        else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+    }
+
+    video.addEventListener("click", videoClick);
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8a72c9049b55493b',t:'MTcyMTY0NDUzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+</body>
+</html>
