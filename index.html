@@ -1,110 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>Anton Hacked</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair_Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Untukmu, Selamanya</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair_Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --rose: #e11d48;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
+        .heart-float {
+            position: fixed;
+            font-size: 1.8rem;
+            color: #fda4af;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: -1;
+            text-shadow: 0 0 15px rgba(251, 113, 133, 0.5);
+            animation: floatHeart linear infinite;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
 
-<style>
-body {
-    font-family: 'Share Tech Mono', monospace;
-}
+        .glow-rose {
+            box-shadow: 0 0 80px -20px rgb(225 29 72);
+        }
 
-/* Glitch effect */
-.glitch {
-    position: relative;
-    color: #00ffcc;
-    animation: flicker 2s infinite;
-}
-@keyframes flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        opacity: 1;
-    }
-    20%, 24%, 55% {
-        opacity: 0.3;
-    }
-}
+        .photo-frame {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.08) rotate(0deg) !important;
+            box-shadow: 0 40px 100px -15px rgba(225, 29, 72, 0.4);
+        }
 
-/* Neon glow */
-.neon {
-    text-shadow: 0 0 5px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc;
-}
-
-/* Scanline effect */
-.scanlines::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,255,204,0.05),
-        rgba(0,255,204,0.05) 1px,
-        transparent 1px,
-        transparent 3px
-    );
-    pointer-events: none;
-}
-</style>
+        .section-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+<body class="bg-gradient-to-br from-black via-rose-950 to-black text-white overflow-x-hidden min-h-screen">
 
-<body class="bg-black text-green-400 flex items-center justify-center min-h-screen scanlines">
+    <!-- Floating Hearts Background -->
+    <div id="hearts" class="fixed inset-0 -z-10 pointer-events-none"></div>
 
-<!-- CARD -->
-<div class="bg-black/70 border border-green-400 p-8 rounded-2xl shadow-[0_0_30px_#00ffcc] w-[320px] backdrop-blur-md">
+    <!-- Hero Section -->
+    <section class="min-h-screen relative flex items-center justify-center px-6 py-20">
+        <div class="absolute inset-0 bg-[radial-gradient(at_center,#e11d48_0%,transparent_70%)] opacity-10"></div>
+        
+        <div class="relative text-center max-w-4xl mx-auto">
+            <p class="uppercase tracking-[6px] text-rose-300/80 text-sm mb-6 font-medium">
+            for you, asyifa
+            </p>
+            
+            <h1 class="title-font text-5xl md:text-[5.5rem] leading-none font-bold tracking-tighter mb-8">
+                Bukan tentang<br>berapa lama kita dekat,
+            </h1>
+            
+            <p class="text-1xl md:text-2xl text-rose-100/90 font-light max-w-2xl mx-auto leading-tight">
+                melainkan tentang bagaimana kita memilih satu sama lain<br>
+                <span class="text-rose-300">setiap hari</span>, dalam setiap versi kehidupan.
+            </p>
+            
+            <div class="mt-8 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-9-9m0 0L5 14" />
+                </svg>
+            </div>
+        </div>
+    </section>
 
-    <p class="text-center text-xl glitch neon mb-2">WhatsApp banned by Anton</p>
-    <h5 class="text-center text-green-300 text-sm mb-6 opacity-70">Jangan Di Salah gunakan</h5>
+    <!-- Photo Collage -->
+    <section class="py-28 flex justify-center px-6">
+        <div class="relative w-full max-w-2xl">
+            <!-- Glow Background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-rose-500/20 to-fuchsia-500/10 blur-3xl rounded-[4rem]"></div>
+            
+            <div class="relative grid grid-cols-2 gap-6">
+                <!-- Top Photo -->
+                <div class="col-span-2 flex justify-center -mt-6">
+                    <img src="foto1.png" 
+                         class="photo-frame w-72 h-72 object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-6deg] hover:rotate-0 glow-rose"
+                         alt="Kita">
+                </div>
+                
+                <!-- Bottom Left -->
+                <div>
+                    <img src="foto2.png" 
+                         class="photo-frame w-full aspect-[4/5] object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-9deg]"
+                         alt="Kita">
+                </div>
+                
+                <!-- Bottom Right -->
+                <div class="mt-12">
+                    <img src="foto3.png" 
+                         class="photo-frame w-full aspect-[4/5] object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-9deg]"
+                         alt="Kita">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <input 
-        type="number" 
-        placeholder="WhatsApp Number" 
-        id="text"
-        class="w-full bg-black border border-green-500 rounded-lg px-4 py-3 text-green-300 placeholder-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-    >
+    <!-- Message Section -->
+    <section class="max-w-3xl mx-auto py-32 px-8 text-center">
+        <div class="space-y-12">
+            <p class="text-3xl md:text-5xl leading-snug font-light text-balance">
+                Terima kasih telah menjadi <span class="text-rose-300">rumah</span> bagiku di dunia yang kadang terasa berat.
+            </p>
+            
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
+            
+            <div class="max-w-xl mx-auto">
+                <p class="text-md md:text-2xl leading-relaxed text-slate-300">
+                    Aku tidak berjanji segalanya akan mudah.<br>
+                    Aku hanya berjanji,<br>
+                    <span class="text-rose-200 font-medium">aku akan selalu memilihmu</span> —<br>
+                    di setiap pagi, di setiap malam, di setiap versi diriku.
+                </p>
+            </div>
+            
+            <div class="pt-12">
+                <p class="text-rose-300 text-md tracking-widest font-light">
+                    Selamanya milikmu.
+                </p>
+                <p class="text-xs uppercase tracking-[4px] mt-6 text-slate-500">
+                    — Aku
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <button 
-        id="login-button"
-        class="mt-5 w-full py-3 rounded-lg bg-green-500 text-black font-bold hover:bg-green-400 transition duration-300 shadow-[0_0_20px_#00ffcc] hover:scale-105 active:scale-95"
-    >
-        BANNED
-    </button>
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.textContent = ['❤', '♡', '💗', '💖'][Math.floor(Math.random() * 4)];
+            
+            const size = Math.random() * 1.4 + 1.2;
+            heart.style.fontSize = `${size}rem`;
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.opacity = Math.random() * 0.5 + 0.4;
+            heart.style.animationDuration = (Math.random() * 18 + 22) + 's';
+            heart.style.animationDelay = '-' + Math.random() * 25 + 's';
+            
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 40000);
+        }
 
-</div>
+        // Create hearts continuously
+        setInterval(createHeart, 280);
+        for (let i = 0; i < 35; i++) createHeart();
 
-<!-- VIDEO -->
-<div class="scare fixed inset-0 hidden bg-black">
-    <video id="video" class="w-full h-full object-cover" src="dshv2.mp4" loop></video>
-</div>
+        // Scroll fade-in animation
+        function handleScroll() {
+            document.querySelectorAll('.section-fade').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add('visible');
+                }
+            });
+        }
 
-<script type="text/javascript">
-    const video = document.getElementById("video");
-    const scare = document.querySelector(".scare");
-    const loginButton = document.getElementById("login-button");
-
-    loginButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        scare.style.display = "block";
-        video.play();
-        videoClick();
-    });
-
-    function videoClick(event) {
-        if(event) event.preventDefault();
-        const { documentElement } = document;
-        if(documentElement.requestFullscreen) documentElement.requestFullscreen();
-        else if(documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
-        else if(documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
-        else if(documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
-    }
-
-    video.addEventListener("click", videoClick);
-</script>
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8a72c9049b55493b',t:'MTcyMTY0NDUzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            document.querySelectorAll('section').forEach((sec, i) => {
+                sec.classList.add('section-fade');
+                setTimeout(() => sec.classList.add('visible'), 300 + i * 200);
+            });
+        });
+    </script>
 </body>
 </html>
