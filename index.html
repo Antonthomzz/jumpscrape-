@@ -1,196 +1,98 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="su">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair_Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>Untukmu, Selamanya</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair_Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
-        
-        :root {
-            --rose: #e11d48;
-        }
-        
         body {
             font-family: 'Inter', sans-serif;
         }
-        
-        .title-font {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .heart-float {
+        #particles-js {
             position: fixed;
-            font-size: 1.8rem;
-            color: #fda4af;
-            opacity: 0.6;
-            pointer-events: none;
+            inset: 0;
             z-index: -1;
-            text-shadow: 0 0 15px rgba(251, 113, 133, 0.5);
-            animation: floatHeart linear infinite;
-        }
-
-        @keyframes floatHeart {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100vh) rotate(360deg); }
-        }
-
-        .glow-rose {
-            box-shadow: 0 0 80px -20px rgb(225 29 72);
-        }
-
-        .photo-frame {
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .photo-frame:hover {
-            transform: scale(1.08) rotate(0deg) !important;
-            box-shadow: 0 40px 100px -15px rgba(225, 29, 72, 0.4);
-        }
-
-        .section-fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        
-        .section-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-black via-rose-950 to-black text-white overflow-x-hidden min-h-screen">
-
-    <!-- Floating Hearts Background -->
-    <div id="hearts" class="fixed inset-0 -z-10 pointer-events-none"></div>
-
-    <!-- Hero Section -->
-    <section class="min-h-screen relative flex items-center justify-center px-6 py-20">
-        <div class="absolute inset-0 bg-[radial-gradient(at_center,#e11d48_0%,transparent_70%)] opacity-10"></div>
-        
-        <div class="relative text-center max-w-4xl mx-auto">
-            <p class="uppercase tracking-[6px] text-rose-300/80 text-sm mb-6 font-medium">
-            for you, asyifa
-            </p>
-            
-            <h1 class="title-font text-5xl md:text-[5.5rem] leading-none font-bold tracking-tighter mb-8">
-                Bukan tentang<br>berapa lama kita dekat,
-            </h1>
-            
-            <p class="text-1xl md:text-2xl text-rose-100/90 font-light max-w-2xl mx-auto leading-tight">
-                melainkan tentang bagaimana kita memilih satu sama lain<br>
-                <span class="text-rose-300">setiap hari</span>, dalam setiap versi kehidupan.
-            </p>
-            
-            <div class="mt-8 animate-bounce">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mx-auto text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-9-9m0 0L5 14" />
-                </svg>
-            </div>
+<body class="bg-black text-white">
+    <div id="particles-js"></div>
+    <div class="min-h-screen flex flex-col justify-center items-center px-6">
+        <div class="[transform:perspective(1000px)_rotateX(20deg)_rotateY(-20deg)_rotateZ(8deg)_translateZ(40px)] flex flex-col items-center">
+            <p id="tanggal" class="text-[11px] text-zinc-500 tracking-[0.35em] uppercase mb-3"></p>
+            <img src="IMG-20260801-WA0016.jpg" class="w-64 h-72 object-cover rounded-xl shadow-2xl"/>
         </div>
-    </section>
 
-    <!-- Photo Collage -->
-    <section class="py-28 flex justify-center px-6">
-        <div class="relative w-full max-w-2xl">
-            <!-- Glow Background -->
-            <div class="absolute inset-0 bg-gradient-to-br from-rose-500/20 to-fuchsia-500/10 blur-3xl rounded-[4rem]"></div>
-            
-            <div class="relative grid grid-cols-2 gap-6">
-                <!-- Top Photo -->
-                <div class="col-span-2 flex justify-center -mt-6">
-                    <img src="foto1.png" 
-                         class="photo-frame w-72 h-72 object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-6deg] hover:rotate-0 glow-rose"
-                         alt="Kita">
-                </div>
-                
-                <!-- Bottom Left -->
-                <div>
-                    <img src="foto2.png" 
-                         class="photo-frame w-full aspect-[4/5] object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-9deg]"
-                         alt="Kita">
-                </div>
-                
-                <!-- Bottom Right -->
-                <div class="mt-12">
-                    <img src="foto3.png" 
-                         class="photo-frame w-full aspect-[4/5] object-cover rounded-3xl border-8 border-white/10 shadow-2xl rotate-[-9deg]"
-                         alt="Kita">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Message Section -->
-    <section class="max-w-3xl mx-auto py-32 px-8 text-center">
-        <div class="space-y-12">
-            <p class="text-3xl md:text-5xl leading-snug font-light text-balance">
-                Terima kasih telah menjadi <span class="text-rose-300">rumah</span> bagiku di dunia yang kadang terasa berat.
+        <div class="mt-10 max-w-sm text-center">
+            <h1 class="text-sm uppercase tracking-[0.45em] text-zinc-400 mb-6">For You — Asyifa</h1>
+            <p class="text-xs leading-2 font-mono text-zinc-300">
+                Makasih nya geus jadi aww aing.<br>
+                aing rumasa goreng adat, sok ngadat teu paruguh.<br>
+                tapi da aing ge aslina mah nyaah,<br>
+                sing ngarti saeutik mah hh🥴
             </p>
-            
-            <div class="w-24 h-px bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-            
-            <div class="max-w-xl mx-auto">
-                <p class="text-md md:text-2xl leading-relaxed text-slate-300">
-                    Aku tidak berjanji segalanya akan mudah.<br>
-                    Aku hanya berjanji,<br>
-                    <span class="text-rose-200 font-medium">aku akan selalu memilihmu</span> —<br>
-                    di setiap pagi, di setiap malam, di setiap versi diriku.
-                </p>
-            </div>
-            
-            <div class="pt-12">
-                <p class="text-rose-300 text-md tracking-widest font-light">
-                    Selamanya milikmu.
-                </p>
-                <p class="text-xs uppercase tracking-[4px] mt-6 text-slate-500">
-                    — Aku
-                </p>
-            </div>
+            <p class="mt-6 text-[10px] font-mono tracking-[0.45em] text-zinc-600">⸻ anton ⸻</p>
+            <p id="jam" class="mt-8 text-[11px] tracking-[0.35em] text-zinc-500"></p>
         </div>
-    </section>
-
+    </div>
     <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart-float';
-            heart.textContent = ['❤', '♡', '💗', '💖'][Math.floor(Math.random() * 4)];
-            
-            const size = Math.random() * 1.4 + 1.2;
-            heart.style.fontSize = `${size}rem`;
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.opacity = Math.random() * 0.5 + 0.4;
-            heart.style.animationDuration = (Math.random() * 18 + 22) + 's';
-            heart.style.animationDelay = '-' + Math.random() * 25 + 's';
-            
-            document.getElementById('hearts').appendChild(heart);
-            
-            setTimeout(() => heart.remove(), 40000);
+        function waktu() {
+            const hari = [
+                "Minggu",
+                "Senin",
+                "Selasa",
+                "Rabu",
+                "Kamis",
+                "Jum'at",
+                "Sabtu"
+            ];
+            const bulan = [
+                "Januari",
+                "February",
+                "Maret",
+                "April",
+                "Mei",
+                "Juni",
+                "Juli",
+                "Agustus",
+                "September",
+                "Oktober",
+                "November",
+                "Desember"
+            ];
+
+            const d = new Date();
+
+            document.getElementById("tanggal").innerHTML = `${hari[d.getDay()]}, ${d.getDate()} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+            document.getElementById("jam").innerHTML = `${String(d.getHours()).padStart(2,"0")} : ${String(d.getMinutes()).padStart(2,"0")} : ${String(d.getSeconds()).padStart(2,"0")}`;
         }
 
-        // Create hearts continuously
-        setInterval(createHeart, 280);
-        for (let i = 0; i < 35; i++) createHeart();
+        setInterval(waktu,1000);
+        waktu();
 
-        // Scroll fade-in animation
-        function handleScroll() {
-            document.querySelectorAll('.section-fade').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) {
-                    el.classList.add('visible');
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 500 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.18 },
+                size: { value: 1 },
+                move: { enable: true, speed: 0.6 },
+                line_linked: { enable: false }
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    }
                 }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', () => {
-            document.querySelectorAll('section').forEach((sec, i) => {
-                sec.classList.add('section-fade');
-                setTimeout(() => sec.classList.add('visible'), 300 + i * 200);
-            });
+            },
+            retina_detect:true
         });
     </script>
 </body>
