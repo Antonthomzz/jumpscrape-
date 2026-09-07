@@ -6,11 +6,12 @@
     <title>Anton Thomz</title>
 </head>
 <body>
-    <p>
+
+<pre>
 sudo mkdir -p /etc/yum.repos.d/backup
 sudo mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/
 
-        sudo tee /etc/yum.repos.d/CentOS-Vault.repo << 'EOF'
+sudo tee /etc/yum.repos.d/CentOS-Vault.repo &lt;&lt; 'EOF'
 [C7.9.2009-base]
 name=CentOS-7.9.2009 - Base
 baseurl=http://vault.centos.org/7.9.2009/os/$basearch/
@@ -32,6 +33,23 @@ gpgcheck=1
 gpgkey=http://vault.centos.org/7.9.2009/os/x86_64/RPM-GPG-KEY-CentOS-7
 enabled=1
 EOF
-    </p>
-</body>
-</html>
+</pre>
+
+### Kalau mau tampilannya lebih keren
+
+Pakai `<pre><code>`:
+
+```html
+<pre><code>sudo mkdir -p /etc/yum.repos.d/backup
+sudo mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/
+
+sudo tee /etc/yum.repos.d/CentOS-Vault.repo &lt;&lt; 'EOF'
+[C7.9.2009-base]
+name=CentOS-7.9.2009 - Base
+baseurl=http://vault.centos.org/7.9.2009/os/$basearch/
+gpgcheck=1
+gpgkey=http://vault.centos.org/7.9.2009/os/x86_64/RPM-GPG-KEY-CentOS-7
+enabled=1
+
+...
+EOF</code></pre>
